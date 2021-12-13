@@ -6,8 +6,8 @@
       active-nav-item-class="bg-primary text-white"
       fill
     >
-      <b-tab title="Players"></b-tab>
-      <b-tab title="Team"></b-tab>
+      <b-tab title="Players" @click="$router.replace('/')"><Player /></b-tab>
+      <b-tab title="Team" @click="$router.replace('/')"></b-tab>
     </b-tabs>
   </div>
 </template>
@@ -15,12 +15,12 @@
 <script lang="ts">
 import Vue from 'vue';
 import Component from 'vue-class-component';
-import { BTabs, BTab } from 'bootstrap-vue';
+
+import Player from './Player/Player.vue';
 
 @Component({
   components: {
-    BTabs,
-    BTab,
+    Player,
   }
 })
 export default class Tabs extends Vue { }

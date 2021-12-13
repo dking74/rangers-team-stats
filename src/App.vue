@@ -20,7 +20,11 @@ import Tabs from './components/Tabs.vue';
     Tabs,
   },
 })
-export default class App extends Vue { }
+export default class App extends Vue {
+  mounted() {
+    const { player_id } = this.$router.currentRoute.query;
+  }
+}
 </script>
 
 <style lang="scss">
