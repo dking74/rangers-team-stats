@@ -4,7 +4,7 @@
       <b-list-group-item
         v-for="(player, i) in displayResults"
         :key="`${i}-${player.player_id}`"
-        :href="`?player_id=${player.player_id}`"
+        :href="`/players?player_id=${player.player_id}`"
         replace
       >
         <p v-html="`${player.name.replace(searchQuery, `<b>${searchQuery}</b>`)}<br>Age: ${player.age}  |  Height: ${player.height}  |  Weight: ${player.weight}lbs  |  Throws: ${player.throws}  |  Bats: ${player.bats}`"></p>

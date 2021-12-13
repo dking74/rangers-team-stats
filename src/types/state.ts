@@ -25,4 +25,6 @@ export interface State {
   teamGames: GameDTO[];
   // Search results
   searchResults: SearchPlayerResultsDTO;
+  // Page loader
+  pageLoading: boolean;
 }

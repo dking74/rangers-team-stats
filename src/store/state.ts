@@ -23,6 +23,7 @@ const state: State = {
   teamPersonnel: {} as TeamPersonnelDTO,
   teamGames: [] as GameDTO[],
   searchResults: [] as SearchPlayerResultsDTO,
+  pageLoading: false as boolean,
 }
 
 export default state;
