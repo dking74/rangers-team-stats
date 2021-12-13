@@ -3,10 +3,7 @@ import {
   PitchYearResultDTO,
 } from './default';
   
-export interface PlayerDTO {
-  first_name: string,
-  last_name: string,
-  logo: string,
+export interface PlayerDetail {
   age: number,
   dob: string,
   country: string,
@@ -16,6 +13,11 @@ export interface PlayerDTO {
   height: string,
   weight: number,
   years: number,
+}
+export interface PlayerDTO extends PlayerDetail {
+  first_name: string,
+  last_name: string,
+  logo: string,
 }
 
 export interface RosterDTO {
