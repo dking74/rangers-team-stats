@@ -1,4 +1,5 @@
 export interface GameDTO {
+  game_id: number,
   year: number,
   game_number: number,
   date: string,

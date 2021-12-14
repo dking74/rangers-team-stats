@@ -1,5 +1,5 @@
 <template>
-  <div id="team-stats" class="team-stats-container text-left mt-4 mb-3" v-if="show">
+  <div id="team-stats" class="team-stats-container text-left mt-4 mb-5" v-if="show">
     <Header title="Team Stats" />
     <!-- Hitting Stats -->
     <h5 class="text-secondary">Hitting</h5>

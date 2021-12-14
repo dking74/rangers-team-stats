@@ -5,8 +5,8 @@
     <TeamPersonnel /><hr v-if="teamResult && Object.keys(teamResult).length > 0" />
     <TeamResult /><hr v-if="teamRoster && Object.keys(teamRoster).length > 0" />
     <TeamRoster /><hr v-if="teamStats && Object.keys(teamStats).length > 0" />
-    <TeamStats />
-    <!-- <hr /> -->
+    <TeamStats /><hr v-if="teamGames && teamGames.length > 0" />
+    <TeamGames />
   </div>
 </template>
 
@@ -22,6 +22,7 @@ import TeamPersonnel from './TeamPersonnel.vue';
 import TeamResult from './TeamResult.vue';
 import TeamRoster from './TeamRoster.vue';
 import TeamStats from './TeamStats.vue';
+import TeamGames from './TeamGames.vue';
 
 import { RosterByYearDTO } from '../../types/players';
 import { GameDTO } from '../../types/games';
@@ -39,6 +40,7 @@ import {
     TeamResult,
     TeamStats,
     TeamRoster,
+    TeamGames,
   }
 })
 export default class Team extends Vue {
@@ -57,6 +59,7 @@ export default class Team extends Vue {
   @State teamResult: TeamResultDTO;
   @State teamRoster: RosterByYearDTO;
   @State teamStats: TeamStatsDTO;
+  @State teamGames: GameDTO[];
 
   mounted() {
     const year = this.year;

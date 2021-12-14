@@ -1,6 +1,6 @@
 <template>
-  <div id="team-roster" class="team-roster-container text-left mt-4 mb-4" v-if="show">
-    <Header title="Team Roster" />
+  <div id="team-games" class="team-games-container text-left mt-4 mb-4" v-if="show">
+    <Header title="Team Games" />
     <Table
       :items="items"
       :paginated="true"
@@ -19,7 +19,6 @@ import { State } from 'vuex-class';
 import Header from '../Header.vue';
 import Table from '../Table.vue';
 
-import { PlayerDTO, RosterByYearDTO } from '../../types/players';
 import { GameDTO } from '../../types/games';
 
 @Component({
@@ -29,21 +28,16 @@ import { GameDTO } from '../../types/games';
   }
 })
 export default class TeamRoster extends Vue {
-  @State teamRoster: RosterByYearDTO;
   @State teamGames: GameDTO[];
 
   get show(): boolean {
-    return this.teamRoster && this.teamRoster.length > 0;
+    return this.teamGames && this.teamGames.length > 0;
   }
 
   get items() {
-    return this.teamRoster.map((player: PlayerDTO) => {
-      const { player_id, logo, first_name, last_name, ...playerDetails } = player;
-      const name = `${first_name} ${last_name}`;
-      return {
-        name,
-        ...playerDetails,
-      }
+    return this.teamGames.map((game: GameDTO) => {
+      const { game_id, year, ...gameDetails } = game;
+      return gameDetails;
     });
   }
 }
