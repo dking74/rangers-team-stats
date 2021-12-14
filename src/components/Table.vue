@@ -16,6 +16,7 @@
       :total-rows="items.length || 0"
       :per-page="numItemsPerPage"
       aria-controls="pitch-data-table-pagination"
+      v-if="paginated"
     ></b-pagination>
   </div>
 </template>

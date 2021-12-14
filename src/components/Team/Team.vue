@@ -1,17 +1,12 @@
 <template>
   <div class="team-container mt-4 mb-4">
     <TeamYearSearch v-model="year" />
-    <TeamLinks />
-    <TeamPersonnel />
-    <TeamResult />
-    <TeamRoster />
-    <!-- <PlayerSearch v-model="searchQuery" />
-    <PlayerSearchResults :searchQuery="searchQuery" />
-    <PlayerProfile />
-    <PlayerBattingStats />
-    <PlayerPitchingStats />
-    <PlayerBattingAverageStats />
-    <PlayerPitchingAverageStats /> -->
+    <TeamLinks /><hr v-if="teamPersonnel && Object.keys(teamPersonnel).length > 0" />
+    <TeamPersonnel /><hr v-if="teamResult && Object.keys(teamResult).length > 0" />
+    <TeamResult /><hr v-if="teamRoster && Object.keys(teamRoster).length > 0" />
+    <TeamRoster /><hr v-if="teamStats && Object.keys(teamStats).length > 0" />
+    <TeamStats />
+    <!-- <hr /> -->
   </div>
 </template>
 
@@ -26,6 +21,7 @@ import TeamLinks from './TeamLinks.vue';
 import TeamPersonnel from './TeamPersonnel.vue';
 import TeamResult from './TeamResult.vue';
 import TeamRoster from './TeamRoster.vue';
+import TeamStats from './TeamStats.vue';
 
 import { RosterByYearDTO } from '../../types/players';
 import { GameDTO } from '../../types/games';
@@ -41,6 +37,7 @@ import {
     TeamLinks,
     TeamPersonnel,
     TeamResult,
+    TeamStats,
     TeamRoster,
   }
 })
@@ -55,6 +52,11 @@ export default class Team extends Vue {
   @Action getTeamGames: (year: number) => Promise<GameDTO[]>;
 
   @Mutation setPageLoading: (loading: boolean) => void;
+
+  @State teamPersonnel: TeamPersonnelDTO;
+  @State teamResult: TeamResultDTO;
+  @State teamRoster: RosterByYearDTO;
+  @State teamStats: TeamStatsDTO;
 
   mounted() {
     const year = this.year;

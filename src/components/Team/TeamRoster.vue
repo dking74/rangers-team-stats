@@ -1,5 +1,5 @@
 <template>
-  <div id="team-roster" class="team-roster-container text-left mt-4 mb-4" v-if="show">
+  <div id="team-roster" class="team-roster-container text-left mt-4 mb-5" v-if="show">
     <Header title="Team Roster" />
     <Table
       :items="items"

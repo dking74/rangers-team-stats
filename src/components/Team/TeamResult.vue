@@ -1,5 +1,5 @@
 <template>
-  <div id="team-result" class="team-result-container text-left mt-4 mb-5" v-if="show">
+  <div id="team-result" class="team-result-container text-left mt-4 mb-3" v-if="show">
     <Header title="Team Year Result" />
     <b-container fluid>
       <b-row>

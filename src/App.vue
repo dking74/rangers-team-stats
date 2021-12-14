@@ -35,6 +35,7 @@ export default class App extends Vue {
 </script>
 
 <style lang="scss">
+@import './scss/variables';
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -43,6 +44,10 @@ export default class App extends Vue {
   color: #2c3e50;
   height: 100%;
   overflow-x: hidden;
+
+  hr {
+    background-color: $secondary;
+  }
 }
 
 #nav {

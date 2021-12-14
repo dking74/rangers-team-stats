@@ -29,6 +29,7 @@ export default class BattingAveragesTable extends Vue {
 
   get battingItems() {
     const battingData: BatYearResultDTO = this.battingStats?.batting;
+    console.log('Batting data: ', battingData);
     if (!battingData) return [];
     return [{
         G: battingData.games,

@@ -1,5 +1,5 @@
 <template>
-  <div id="team-personnel" class="team-personnel-container text-left mt-4 mb-5" v-if="show">
+  <div id="team-personnel" class="team-personnel-container text-left mt-4 mb-3" v-if="show">
     <Header title="Team Personnel" />
     <b-container fluid>
       <b-row>

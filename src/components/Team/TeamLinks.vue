@@ -1,6 +1,6 @@
 <template>
-  <div class="team-links mt-4 mb-5">
-    <h4 class="mb1 text-primary">Skip to Section</h4>
+  <div class="team-links mt-4 mb-3">
+    <h4 class="mb-1 text-secondary">Skip to Section</h4>
     <b-list-group>
         <b-list-group-item href="#team-personnel">Management & Coaches</b-list-group-item>
         <b-list-group-item href="#team-roster">Roster</b-list-group-item>

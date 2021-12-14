@@ -1,13 +1,13 @@
 <template>
-  <div id="team-roster" class="team-roster-container text-left mt-4 mb-4" v-if="show">
-    <Header title="Team Roster" />
-    <Table
-      :items="items"
-      :paginated="true"
-      :compress="true"
-      :stickyHeader="true"
-      :numItemsPerPage="5"
-    />
+  <div id="team-stats" class="team-stats-container text-left mt-4 mb-3" v-if="show">
+    <Header title="Team Stats" />
+    <!-- Hitting Stats -->
+    <h5 class="text-secondary">Hitting</h5>
+    <BattingAveragesTable :stats="teamStats" />
+
+    <!-- Pitching Stats -->
+    <h5 class="text-secondary mt-4">Pitching</h5>
+    <PitchingAveragesTable :stats="teamStats" />
   </div>
 </template>
 
@@ -17,34 +17,31 @@ import Component from 'vue-class-component';
 import { State } from 'vuex-class';
 
 import Header from '../Header.vue';
-import Table from '../Table.vue';
+import BattingAveragesTable from '../SharedStatTables/BattingAveragesTable.vue';
+import PitchingAveragesTable from '../SharedStatTables/PitchingAveragesTable.vue';
 
-import { PlayerDTO, RosterByYearDTO } from '../../types/players';
 import { TeamStatsDTO } from '../../types/teams';
 
 @Component({
   components: {
     Header,
-    Table,
+    BattingAveragesTable,
+    PitchingAveragesTable,
   }
 })
-export default class TeamRoster extends Vue {
-  @State teamRoster: RosterByYearDTO;
+export default class TeamStats extends Vue {
   @State teamStats: TeamStatsDTO;
 
   get show(): boolean {
-    return this.teamRoster && this.teamRoster.length > 0;
+    return this.teamStats && Object.keys(this.teamStats).length > 0;
   }
 
-  get items() {
-    return this.teamRoster.map((player: PlayerDTO) => {
-      const { player_id, logo, first_name, last_name, ...playerDetails } = player;
-      const name = `${first_name} ${last_name}`;
-      return {
-        name,
-        ...playerDetails,
-      }
-    });
+  get battingStats() {
+    return this.teamStats?.batting || [];
+  }
+
+  get pitchingStats() {
+    return this.teamStats?.pitching || [];
   }
 }
 </script>
