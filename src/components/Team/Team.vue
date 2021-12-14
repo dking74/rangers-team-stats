@@ -3,6 +3,7 @@
     <TeamYearSearch v-model="year" />
     <TeamLinks />
     <TeamPersonnel />
+    <TeamResult />
     <TeamRoster />
     <!-- <PlayerSearch v-model="searchQuery" />
     <PlayerSearchResults :searchQuery="searchQuery" />
@@ -23,6 +24,7 @@ import { Watch } from 'vue-property-decorator';
 import TeamYearSearch from './TeamYearSearch.vue';
 import TeamLinks from './TeamLinks.vue';
 import TeamPersonnel from './TeamPersonnel.vue';
+import TeamResult from './TeamResult.vue';
 import TeamRoster from './TeamRoster.vue';
 
 import { RosterByYearDTO } from '../../types/players';
@@ -38,6 +40,7 @@ import {
     TeamYearSearch,
     TeamLinks,
     TeamPersonnel,
+    TeamResult,
     TeamRoster,
   }
 })
@@ -49,10 +52,6 @@ export default class Team extends Vue {
   @Action getTeamStats: (year: number) => Promise<TeamStatsDTO>;
   @Action getTeamPersonnel: (year: number) => Promise<TeamPersonnelDTO>;
   @Action getTeamGames: (year: number) => Promise<GameDTO[]>;
-
-  @State teamResult: TeamResultDTO;
-  @State teamStats: TeamStatsDTO;
-  @State teamGames: GameDTO[];
 
   @Mutation setPageLoading: (loading: boolean) => void;
 

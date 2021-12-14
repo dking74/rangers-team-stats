@@ -1,5 +1,5 @@
 <template>
-  <div id="team-personnel" class="team-personnel-container text-left mt-4 mb-4" v-if="show">
+  <div id="team-personnel" class="team-personnel-container text-left mt-4 mb-5" v-if="show">
     <Header title="Team Personnel" />
     <b-container fluid>
       <b-row>
@@ -88,8 +88,7 @@ export default class TeamPersonnel extends Vue {
   }
   &--title {
     font-weight: bold;
-    // margin-right: 10px;
-    width: 150px;
+    width: 200px;
   }
 }
 </style>
