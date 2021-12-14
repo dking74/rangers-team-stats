@@ -2,6 +2,7 @@
   <div class="team-container mt-4 mb-4">
     <TeamYearSearch v-model="year" />
     <TeamLinks />
+    <TeamPersonnel />
     <TeamRoster />
     <!-- <PlayerSearch v-model="searchQuery" />
     <PlayerSearchResults :searchQuery="searchQuery" />
@@ -21,6 +22,7 @@ import { Watch } from 'vue-property-decorator';
 
 import TeamYearSearch from './TeamYearSearch.vue';
 import TeamLinks from './TeamLinks.vue';
+import TeamPersonnel from './TeamPersonnel.vue';
 import TeamRoster from './TeamRoster.vue';
 
 import { RosterByYearDTO } from '../../types/players';
@@ -35,6 +37,7 @@ import {
   components: {
     TeamYearSearch,
     TeamLinks,
+    TeamPersonnel,
     TeamRoster,
   }
 })
@@ -47,8 +50,6 @@ export default class Team extends Vue {
   @Action getTeamPersonnel: (year: number) => Promise<TeamPersonnelDTO>;
   @Action getTeamGames: (year: number) => Promise<GameDTO[]>;
 
-  @State teamPersonnel: TeamPersonnelDTO;
-  @State teamRoster: RosterByYearDTO;
   @State teamResult: TeamResultDTO;
   @State teamStats: TeamStatsDTO;
   @State teamGames: GameDTO[];
