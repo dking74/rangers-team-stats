@@ -1,6 +1,8 @@
 <template>
   <div class="team-container mt-4 mb-4">
     <TeamYearSearch v-model="year" />
+    <TeamLinks />
+    <TeamRoster />
     <!-- <PlayerSearch v-model="searchQuery" />
     <PlayerSearchResults :searchQuery="searchQuery" />
     <PlayerProfile />
@@ -18,6 +20,8 @@ import { Action, Mutation, State } from 'vuex-class';
 import { Watch } from 'vue-property-decorator';
 
 import TeamYearSearch from './TeamYearSearch.vue';
+import TeamLinks from './TeamLinks.vue';
+import TeamRoster from './TeamRoster.vue';
 
 import { RosterByYearDTO } from '../../types/players';
 import { GameDTO } from '../../types/games';
@@ -30,9 +34,11 @@ import {
 @Component({
   components: {
     TeamYearSearch,
+    TeamLinks,
+    TeamRoster,
   }
 })
-export default class Player extends Vue {
+export default class Team extends Vue {
   year: number | null = null;
 
   @Action getTeamRoster: (year: number) => Promise<RosterByYearDTO>;

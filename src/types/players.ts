@@ -15,6 +15,7 @@ export interface PlayerDetail {
   years: number,
 }
 export interface PlayerDTO extends PlayerDetail {
+  player_id: number;
   first_name: string,
   last_name: string,
   logo: string,

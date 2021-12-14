@@ -28,7 +28,7 @@ export default class App extends Vue {
   @State pageLoading: boolean;
 
   mounted() {
-    const path = this.$router.currentRoute.path;
+    const path = this.$route.path;
     (path === '/teams') ? this.activeTab = 'team' : this.activeTab = 'player';
   }
 }
@@ -42,6 +42,7 @@ export default class App extends Vue {
   text-align: center;
   color: #2c3e50;
   height: 100%;
+  overflow-x: hidden;
 }
 
 #nav {
