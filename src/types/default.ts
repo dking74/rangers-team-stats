@@ -1,3 +1,6 @@
+export interface BattingTableResult {
+
+}
 export interface BatYearResultDTO {
   games: number,
   plate_appearances: number,

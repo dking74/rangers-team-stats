@@ -27,9 +27,12 @@ export interface RosterDTO {
 
 export interface PlayerBatYearResultDTO extends BatYearResultDTO {}
 export interface PlayerPitchYearResultDTO extends PitchYearResultDTO {}
-export interface PlayerYearResultDTO {
+export interface PlayerYearResult {
   batting: PlayerBatYearResultDTO;
   pitching: PlayerPitchYearResultDTO;
+}
+export interface PlayerYearResultDTO {
+  [year: number]: PlayerYearResult;
 }
   
 export interface PlayerStatAveragesDTO {

@@ -1,8 +1,5 @@
 <template>
-  <div class="player-profile mt-5" v-if="playerDefined">
-    <!-- {{ currentPlayerInfo }}
-    {{ currentPlayerStats }}
-    {{ currentPlayerStatAverages }} -->
+  <div class="player-profile mt-5" v-if="isPlayerDefined">
     <div class="text-center mb-3">
       <b-avatar size="64px" variant="info" :src="playerLogo"></b-avatar>
     </div>
@@ -19,8 +16,7 @@ import PlayerInfo from './PlayerInfo.vue';
 
 import {
   PlayerDTO,
-  // PlayerStatAveragesDTO,
-  // PlayerYearResultDTO,
+  PlayerStatAveragesDTO,
 } from '../../../types/players';
 
 @Component({
@@ -30,10 +26,10 @@ import {
 })
 export default class PlayerProfile extends Vue {
   @State currentPlayerInfo: PlayerDTO;
-  // @State currentPlayerStats: PlayerYearResultDTO;
+  
   // @State currentPlayerStatAverages: PlayerStatAveragesDTO;
 
-  get playerDefined() {
+  get isPlayerDefined() {
     return Object.keys(this.currentPlayerInfo).length > 0;
   }
 

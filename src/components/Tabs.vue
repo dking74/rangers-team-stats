@@ -1,5 +1,5 @@
 <template>
-  <div class="player-team-toggler w-75 mx-auto mt-4">
+  <div class="player-team-toggler w-75 mx-auto py-4">
     <b-tabs
       content-class="mt-3 border-none"
       align="center"
@@ -17,8 +17,6 @@ import Vue from 'vue';
 import Component from 'vue-class-component';
 import { Prop } from 'vue-property-decorator';
 import { Mutation } from 'vuex-class';
-
-import Router from '../router';
 
 import Player from './Player/Player.vue';
 

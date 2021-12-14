@@ -1,8 +1,12 @@
 <template>
-  <div class="player-container mt-4">
+  <div class="player-container mt-4 mb-4">
     <PlayerSearch v-model="searchQuery" />
     <PlayerSearchResults :searchQuery="searchQuery" />
     <PlayerProfile />
+    <PlayerBattingStats />
+    <PlayerPitchingStats />
+    <PlayerBattingAverageStats />
+    <PlayerPitchingAverageStats />
   </div>
 </template>
 
@@ -14,6 +18,10 @@ import { Action, Mutation } from 'vuex-class';
 import PlayerSearch from './PlayerSearch.vue';
 import PlayerSearchResults from './PlayerSearchResults.vue';
 import PlayerProfile from './Profile/PlayerProfile.vue';
+import PlayerBattingStats from './Stats/PlayerBattingStats.vue';
+import PlayerPitchingStats from './Stats/PlayerPitchingStats.vue';
+import PlayerBattingAverageStats from './Stats/PlayerBattingAverageStats.vue';
+import PlayerPitchingAverageStats from './Stats/PlayerPitchingAverageStats.vue';
 
 import {
   PlayerDTO,
@@ -26,6 +34,10 @@ import {
     PlayerSearch,
     PlayerSearchResults,
     PlayerProfile,
+    PlayerBattingStats,
+    PlayerPitchingStats,
+    PlayerBattingAverageStats,
+    PlayerPitchingAverageStats,
   }
 })
 export default class Player extends Vue {
