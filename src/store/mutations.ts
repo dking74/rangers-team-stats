@@ -1,7 +1,17 @@
-import { GameDTO } from "../types/games";
-import { PlayerDTO, PlayerStatAveragesDTO, PlayerYearResultDTO, RosterByYearDTO, SearchPlayerResultsDTO } from "../types/players";
 import { State } from "../types/state";
-import { TeamPersonnelDTO, TeamResultDTO, TeamStatsDTO } from "../types/teams";
+import { GameDTO } from "../types/games";
+import {
+  PlayerDTO,
+  PlayerStatAveragesDTO,
+  PlayerYearResultDTO,
+  RosterByYearDTO,
+  SearchPlayerResultsDTO,
+} from "../types/players";
+import {
+  TeamPersonnelDTO,
+  TeamResultDTO,
+  TeamStatsDTO,
+} from "../types/teams";
 
 export default {
   setCurrentPlayer(state: State, currentPlayer: PlayerDTO) {
@@ -18,6 +28,21 @@ export default {
   },
   setPageLoading(state: State, pageLoading: boolean) {
     state.pageLoading = pageLoading;
+  },
+  setTeamPersonnel(state: State, teamPersonnel: TeamPersonnelDTO) {
+    state.teamPersonnel = teamPersonnel;
+  },
+  setTeamRoster(state: State, teamRoster: RosterByYearDTO) {
+    state.teamRoster = teamRoster;
+  },
+  setTeamResults(state: State, teamResults: TeamResultDTO) {
+    state.teamResult = teamResults;
+  },
+  setTeamStats(state: State, teamStats: TeamStatsDTO) {
+    state.teamStats = teamStats
+  },
+  setTeamGames(state: State, teamGames: GameDTO[]) {
+    state.teamGames = teamGames;
   },
   clearCurrentData(state: State) {
     state.currentPlayerInfo = {} as PlayerDTO;

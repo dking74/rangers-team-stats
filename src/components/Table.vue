@@ -9,6 +9,13 @@
       :items="tableItems"
       :fields="tableFields"
     ></b-table>
+
+    <b-pagination
+      v-model="currentPage"
+      :total-rows="items.length || 0"
+      :per-page="numItemsPerPage"
+      aria-controls="pitch-data-table-pagination"
+    ></b-pagination>
   </div>
 </template>
 
@@ -23,6 +30,8 @@ export default class Table extends Vue {
   @Prop() fields!: Array<any>;
   @Prop({ default: '' }) classes!: string;
   @Prop({ default: true }) sortableFields!: boolean;
+  @Prop({ default: false }) paginated!: boolean;
+  @Prop({ default: 10 }) numItemsPerPage!: number;
 
   tableItems = this.items || [];
   tableFields = this.fields || this.items.reduce<string[]>((prev: string[], curr: any) => {
@@ -32,6 +41,7 @@ export default class Table extends Vue {
     }, [])
     .map((field: string) => ({ key: field, sortable: this.sortableFields && true  }));
   tableClasses = this.classes || '';
+  currentPage = 1;
 }
 </script>
 

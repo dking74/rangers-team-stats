@@ -7,7 +7,7 @@
       fill
     >
       <b-tab title="Players" @click="clickedTabRoute('players')" :active="activeTab === 'player'"><Player /></b-tab>
-      <b-tab title="Team" @click="clickedTabRoute('teams')" :active="activeTab === 'team'"></b-tab>
+      <b-tab title="Team" @click="clickedTabRoute('teams')" :active="activeTab === 'team'"><Team /></b-tab>
     </b-tabs>
   </div>
 </template>
@@ -19,10 +19,12 @@ import { Prop } from 'vue-property-decorator';
 import { Mutation } from 'vuex-class';
 
 import Player from './Player/Player.vue';
+import Team from './Team/Team.vue';
 
 @Component({
   components: {
     Player,
+    Team,
   }
 })
 export default class Tabs extends Vue {
@@ -30,7 +32,13 @@ export default class Tabs extends Vue {
   @Mutation clearCurrentData: () => void;
 
   clickedTabRoute(path: string) {
-    if (this.$router.currentRoute.path !== `/${path}`) {
+    // Navigate if the path has changed or
+    // if the path has query params and we want to go
+    // back to the base path.
+    if (
+      this.$route.path != `/${path}` ||
+      Object.keys(this.$route.query).length > 0
+    ) {
       this.$router.replace(`/${path}`);
       this.clearCurrentData();
     }

@@ -11,9 +11,7 @@ import { Prop } from 'vue-property-decorator';
 
 import Table from '../Table.vue';
 
-import { PitchYearResultDTO } from '../../types/default';
-
-type PitchResult = { pitching: PitchYearResultDTO };
+import { PitchYearResultDTO, PitchResult } from '../../types/default';
 
 @Component({
   components: {

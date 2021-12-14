@@ -11,13 +11,7 @@ import { Prop } from 'vue-property-decorator';
 
 import Table from '../Table.vue';
 
-import { BatYearResultDTO } from '../../types/default';
-
-type BatYearResult = {
-  [year: number]: {
-    batting: BatYearResultDTO;
-  }
-};
+import { BatYearResultDTO, BatYearResult } from '../../types/default';
 
 @Component({
   components: {

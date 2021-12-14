@@ -15,7 +15,6 @@ import PitchingAveragesTable from '../../SharedStatTables/PitchingAveragesTable.
 
 import {
   PlayerStatAveragesDTO,
-  PlayerYearResultDTO,
 } from '../../../types/players';
 
 @Component({

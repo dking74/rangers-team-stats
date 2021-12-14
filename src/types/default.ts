@@ -1,6 +1,4 @@
-export interface BattingTableResult {
 
-}
 export interface BatYearResultDTO {
   games: number,
   plate_appearances: number,
@@ -26,7 +24,11 @@ export interface BatYearResultDTO {
   sacrifice_fly: number,
   ibb: number,
 }
-  
+export type BatResult = { batting: BatYearResultDTO };
+export type BatYearResult = {
+  [year: number]: BatResult;
+};
+
 export interface PitchYearResultDTO {
   wins: number,
   losses: number,
@@ -57,3 +59,7 @@ export interface PitchYearResultDTO {
   bb_per_9: number,
   k_per_9: number,
 }
+export type PitchResult = { pitching: PitchYearResultDTO };
+export type PitchYearResult = {
+  [year: number]: PitchResult;
+};
