@@ -46,6 +46,7 @@ import {
 })
 export default class Team extends Vue {
   year: number | null = null;
+  loadingState = false;
 
   @Action getTeamRoster: (year: number) => Promise<RosterByYearDTO>;
   @Action getTeamResult: (year: number) => Promise<TeamResultDTO>;
@@ -57,18 +58,22 @@ export default class Team extends Vue {
 
   mounted() {
     const year = this.year;
-    if (year) this.getTeamData(year);
+    if (year && !this.loadingState) this.getTeamData(year);
   }
 
   getTeamData(year: number) {
     this.setPageLoading(true);
+    this.loadingState = true;
     Promise.all([
       this.getTeamPersonnel(year),
       this.getTeamRoster(year),
       this.getTeamResult(year),
       this.getTeamStats(year),
       this.getTeamGames(year),
-    ]).finally(() => this.setPageLoading(false));
+    ]).finally(() => {
+        this.loadingState = false;
+        this.setPageLoading(false)
+    });
   }
 
   @Watch('year')
